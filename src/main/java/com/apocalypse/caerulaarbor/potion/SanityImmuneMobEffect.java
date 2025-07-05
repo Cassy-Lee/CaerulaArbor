@@ -24,21 +24,6 @@ public class SanityImmuneMobEffect extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
-        entity.getCapability(ModCapabilities.SANITY_INJURY).ifPresent(cap -> {
-            if (!cap.isImmune()) {
-                cap.setImmune(true);
-            }
-            cap.regenerate(5);
-        });
-    }
-
-    @Override
-    public boolean isDurationEffectTick(int duration, int amplifier) {
-        return true;
-    }
-
-    @Override
     public void initializeClient(java.util.function.Consumer<IClientMobEffectExtensions> consumer) {
         consumer.accept(new IClientMobEffectExtensions() {
             @Override

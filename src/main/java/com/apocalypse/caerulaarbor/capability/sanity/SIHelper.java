@@ -21,7 +21,7 @@ public class SIHelper {
 
         double damage = value * (1 + sanRateValue / 100D) * (1 - sanModifier / 100D);
         living.getCapability(ModCapabilities.SANITY_INJURY).ifPresent(
-                cap -> cap.injure(damage)
+                cap -> cap.hurt(damage)
         );
         return true;
     }
