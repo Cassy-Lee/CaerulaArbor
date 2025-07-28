@@ -72,22 +72,7 @@ public class RedstoneIrisSeedingBlock extends FlowerBlock implements Bonemealabl
 
     private void grow(ServerLevel world, BlockPos pos) {
         if (Math.random() >= 0.05) return;
-
-        BlockState redstoneIrisState = ModBlocks.REDSTONE_IRIS.get().defaultBlockState();
-        BlockState state = world.getBlockState(pos);
-
-        for (var entry : state.getValues().entrySet()) {
-            var property = redstoneIrisState.getBlock().getStateDefinition().getProperty(entry.getKey().getName());
-            if (property == null) continue;
-
-            redstoneIrisState.getValue(property);
-            try {
-                // TODO 什么b类型
-//                redstoneIrisState = redstoneIrisState.setValue(property, (Comparable) entry.getValue());
-            } catch (Exception ignored) {
-            }
-        }
-        world.setBlock(pos, redstoneIrisState, 3);
+        world.setBlock(pos, ModBlocks.REDSTONE_IRIS.get().defaultBlockState(), 3);
     }
 
     @Override
